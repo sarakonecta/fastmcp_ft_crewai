@@ -1,6 +1,6 @@
 # DiceRoller Crew
 
-DiceRoller MCP server for CrewAI.
+DiceRoller MCP server for CrewAI with stdio transport.
 
 ## Installation
 

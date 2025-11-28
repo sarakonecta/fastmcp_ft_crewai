@@ -17,14 +17,14 @@ class DiceRoller():
     tasks: List[Task]
 
     def __init__(self):
-        """Inicializa la configuración del LLM y MCP"""
+        """Initialize LLM and MCP configuration"""
         self.llm_model = LLM(
             model=os.getenv("MODEL", "openai/gemini-2.5-flash"),
             api_key=os.getenv("OPENAI_API_KEY"),
             base_url=os.getenv("OPENAI_API_BASE")
         )
         self.mcps = [
-            # Servidor FastMCP local con transporte stdio
+            # Local FastMCP server using stdio transport
             MCPServerStdio(
                 command="python",
                 args=["/home/ssansalvador/Projects/fastmcp_server/DiceRoller_mcp/server.py"],
@@ -56,7 +56,7 @@ class DiceRoller():
 
         return Crew(
             agents=self.agents, # Automatically created by the @agent decorator
-            tasks=self.tasks, # Automatically created by the @task decorator
+            tasks=self.tasks,   # Automatically created by the @task decorator
             process=Process.sequential,
             verbose=True,
         )
